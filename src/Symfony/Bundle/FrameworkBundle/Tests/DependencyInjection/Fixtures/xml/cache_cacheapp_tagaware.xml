@@ -9,7 +9,7 @@
         <framework:annotations enabled="false" />
         <framework:php-errors log="true" />
         <framework:cache>
-            <framework:pool name="app.tagaware" adapter="cache.app" tags="true" />
+            <framework:pool name="cache.app" tags="true" />
         </framework:cache>
     </framework:config>
 </container>

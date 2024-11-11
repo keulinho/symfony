@@ -7,8 +7,7 @@ $container->loadFromExtension('framework', [
     'php_errors' => ['log' => true],
     'cache' => [
         'pools' => [
-            'app.tagaware' => [
-                'adapter' => 'cache.app',
+            'cache.app' => [
                 'tags' => true,
             ],
         ],

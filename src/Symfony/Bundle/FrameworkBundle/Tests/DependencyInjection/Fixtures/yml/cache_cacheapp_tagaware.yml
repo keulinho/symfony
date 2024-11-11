@@ -6,6 +6,5 @@ framework:
         log: true
     cache:
         pools:
-            app.tagaware:
-                adapter: cache.app
+            cache.app:
                 tags: true

@@ -1861,7 +1861,7 @@ abstract class FrameworkExtensionTestCase extends TestCase
      */
     public function testTaggableCacheAppIsDeprecated()
     {
-        $this->expectUserDeprecationMessage('Since symfony/framework-bundle 7.2: Using the "tags" option with the "cache.app" adapter is deprecated. You can use the "cache.app.taggable" adapter instead (aliased to the TagAwareCacheInterface for autowiring).');
+        $this->expectUserDeprecationMessage('Since symfony/framework-bundle 7.2: Using the "tags" option with the "cache.app" pool is deprecated. You can use the "cache.app.taggable" pool instead (aliased to the TagAwareCacheInterface for autowiring).');
 
         $this->createContainerFromFile('cache_cacheapp_tagaware');
     }
