@@ -2389,6 +2389,16 @@ class FrameworkExtension extends Extension
             }
         }
         foreach (['app', 'system'] as $name) {
+            if ('cache.adapter.redis_tag_aware' === $config[$name]) {
+                trigger_deprecation('symfony/framework-bundle', '7.2', sprintf(
+                    'Using the "cache.adapter.redis_tag_aware" adapter for "cache.%s" is deprecated. You can use the "cache.app.taggable" service instead (aliased to the TagAwareCacheInterface for autowiring).',
+                    $name
+                ));
+                // throw new LogicException(sprintf(
+                //                    'Using the "cache.adapter.redis_tag_aware" adapter for "cache.%s" is deprecated. You can use the "cache.app.taggable" service instead (aliased to the TagAwareCacheInterface for autowiring).',
+                //                    $name
+                //                ));
+            }
             $config['pools']['cache.'.$name] = [
                 'adapters' => [$config[$name]],
                 'public' => true,
@@ -2396,11 +2406,6 @@ class FrameworkExtension extends Extension
             ];
         }
         foreach ($config['pools'] as $name => $pool) {
-            if ('cache.app' === $name && $pool['tags']) {
-                trigger_deprecation('symfony/framework-bundle', '7.2', 'Using the "tags" option with the "cache.app" pool is deprecated. You can use the "cache.app.taggable" pool instead (aliased to the TagAwareCacheInterface for autowiring).');
-                // throw new LogicException('The "tags" option cannot be used with the "cache.app" pool. You can use the "cache.app.taggable" pool instead (aliased to the TagAwareCacheInterface for autowiring).');
-            }
-
             $pool['adapters'] = $pool['adapters'] ?: ['cache.app'];
 
             $isRedisTagAware = ['cache.adapter.redis_tag_aware'] === $pool['adapters'];

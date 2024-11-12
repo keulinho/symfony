@@ -5,6 +5,4 @@ framework:
     php_errors:
         log: true
     cache:
-        pools:
-            cache.app:
-                tags: true
+        app: cache.adapter.redis_tag_aware

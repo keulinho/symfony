@@ -8,8 +8,6 @@
     <framework:config http-method-override="false" handle-all-throwables="true">
         <framework:annotations enabled="false" />
         <framework:php-errors log="true" />
-        <framework:cache>
-            <framework:pool name="cache.app" tags="true" />
-        </framework:cache>
+        <framework:cache app="cache.adapter.redis_tag_aware"/>
     </framework:config>
 </container>

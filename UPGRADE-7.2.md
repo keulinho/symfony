@@ -12,7 +12,7 @@ Cache
 -----
 
  * `igbinary_serialize()` is not used by default when the igbinary extension is installed
- * Deprecate making `cache.app` pool taggable, use the `cache.app.taggable` pool instead
+ * Deprecate making `cache.app` tag aware, use the `cache.app.taggable` service instead
 
 Console
 -------

@@ -6,10 +6,6 @@ $container->loadFromExtension('framework', [
     'handle_all_throwables' => true,
     'php_errors' => ['log' => true],
     'cache' => [
-        'pools' => [
-            'cache.app' => [
-                'tags' => true,
-            ],
-        ],
+        'app' => 'cache.adapter.redis_tag_aware',
     ],
 ]);
